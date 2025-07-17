@@ -1,0 +1,116 @@
+/* QueryForm.module.css */
+.bgGradient {
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100vw;
+  height: 100vh;
+  z-index: 0;
+  background: linear-gradient(90deg, #ffe5ec 0%, #fff 50%, #e0e7ff 100%);
+}
+.centered {
+  position: relative;
+  z-index: 1;
+  min-height: 100vh;
+  min-width: 100vw;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  font-family: sans-serif;
+}
+.formBox {
+  background: #fff7ed;
+  border-radius: 12px;
+  box-shadow: 0 2px 8px #0001;
+  padding: 2rem;
+  min-width: 350px;
+  text-align: center;
+}
+.title {
+  color: #1e293b;
+  font-size: 2rem;
+  margin: 0;
+}
+.subtitle {
+  color: #64748b;
+  font-size: 1.1rem;
+}
+.formTitle {
+  color: #334155;
+  font-size: 1.3rem;
+  margin: 1.5rem 0 1rem;
+}
+.input {
+  width: 100%;
+  max-width: 400px;
+  min-width: 0;
+  box-sizing: border-box;
+  padding: 0.75rem;
+  border-radius: 6px;
+  border: 1px solid #cbd5e1;
+  font-size: 1rem;
+  background: #f8fafc;
+  color: #1e293b;
+  margin-bottom: 1rem;
+  display: block;
+  margin-left: auto;
+  margin-right: auto;
+  transition: width 0.2s;
+}
+.textarea {
+  width: 100%;
+  max-width: 400px;
+  min-width: 0;
+  box-sizing: border-box;
+  padding: 0.75rem;
+  border-radius: 6px;
+  border: 1px solid #cbd5e1;
+  font-size: 1rem;
+  background: #f8fafc;
+  color: #1e293b;
+  margin-bottom: 1rem;
+  display: block;
+  margin-left: auto;
+  margin-right: auto;
+  resize: vertical;
+}
+.submitBtn {
+  width: 100%;
+  padding: 0.75rem;
+  border-radius: 6px;
+  background: #334155;
+  color: #fff;
+  font-weight: 600;
+  font-size: 1rem;
+  border: none;
+  cursor: pointer;
+}
+@media (max-width: 600px) {
+  .formBox {
+    padding: 1rem 0.5rem;
+    min-width: 90vw;
+    max-width: 98vw;
+    border-radius: 8px;
+    box-shadow: 0 1px 4px #0001;
+  }
+  .title {
+    font-size: 1.2rem;
+  }
+  .subtitle {
+    font-size: 0.95rem;
+  }
+  .formTitle {
+    font-size: 1rem;
+    margin: 1rem 0 0.7rem;
+  }
+  .input, .textarea {
+    font-size: 0.95rem;
+    padding: 0.6rem;
+    max-width: 95vw;
+    margin-bottom: 0.8rem;
+  }
+  .submitBtn {
+    font-size: 0.95rem;
+    padding: 0.6rem;
+  }
+}

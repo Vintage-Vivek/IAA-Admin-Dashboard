@@ -1,0 +1,103 @@
+/* Make the text color black for the specified parts */
+/* Make the text color black and bold for the specified parts */
+.logo-black {
+  color: #000;
+  font-weight: 700;
+}
+.header-bg {
+  width: 100vw;
+  background: linear-gradient(120deg, #e0f2fe 0%, #bae6fd 100%);
+  padding: 0.5rem 0 0.5rem 0;
+  display: flex;
+  align-items: flex-start;
+  box-shadow: 0 2px 8px rgba(0,0,0,0.04);
+}
+
+.logo-container {
+  margin-left: 32px;
+  margin-top: 8px;
+}
+
+.logo-rows {
+  display: flex;
+  flex-direction: column;
+  gap: 0;
+  margin: 0;
+  padding: 0;
+}
+
+.logo-row {
+  display: flex;
+  align-items: baseline;
+  gap: 0;
+  margin: 0;
+  padding: 0;
+  line-height: 0.5;
+}
+/* Ensure black text aligns with colored letter baseline and remove extra spacing */
+.logo-text {
+  margin: 0;
+  padding: 0;
+  line-height: 1;
+  display: inline-block;
+  text-align: left;
+  vertical-align: bottom;
+}
+
+.logo-i-block {
+  display: inline-block;
+  width: 18px;
+  height: 38px;
+  background: #38bdf8;
+  color: #fff;
+  font-size: 2.1rem;
+  font-weight: 700;
+  font-family: 'Lora', serif;
+  border-radius: 3px;
+  text-align: center;
+  line-height: 38px;
+  letter-spacing: 2px;
+  box-shadow: 0 2px 8px rgba(56,189,248,0.10);
+}
+
+.logo-a-svg {
+  width: 32px;
+  height: 32px;
+  display: inline-block;
+  vertical-align: middle;
+}
+
+/* Increased size for vertical Iaa */
+.logo-i {
+  color: #38bdf8;
+  font-size: 2.8rem;
+  font-weight: 700;
+  font-family: 'Lora', serif;
+  margin-right: 0.2rem;
+  margin-left: 0.3rem;
+  letter-spacing: 2px;
+  display: inline-block;
+  width: 2.2rem;
+}
+
+.logo-a-yellow {
+  color: #facc15;
+  font-size: 2.8rem;
+  font-weight: 700;
+  font-family: 'Lora', serif;
+  margin-right: 0.2rem;
+  letter-spacing: 1px;
+  display: inline-block;
+  width: 2.2rem;
+}
+
+.logo-a-blue {
+  color: #38bdf8;
+  font-size: 2.8rem;
+  font-weight: 700;
+  font-family: 'Lora', serif;
+  margin-right: 0.2rem;
+  letter-spacing: 1px;
+  display: inline-block;
+  width: 2.2rem;
+}
