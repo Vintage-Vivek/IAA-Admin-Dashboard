@@ -1,5 +1,7 @@
 import React, { useState } from "react";
 import styles from "./Login.module.css";
+import Navbar from "./Navbar/Navbar";
+
 
 export default function Login({ onLogin }) {
   const [username, setUsername] = useState("");
@@ -34,7 +36,9 @@ export default function Login({ onLogin }) {
   };
 
   return (
+    
     <div className={styles.bgGradient}>
+      <Navbar />
       <div className={styles.centered}>
         <div className={styles.loginBox}>
           <h1 className={styles.title}>IAA WhatsApp Chatbot Admin Dashboard</h1>
