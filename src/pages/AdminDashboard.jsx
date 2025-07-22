@@ -2,6 +2,8 @@
 import React, { useEffect, useState, useRef } from "react";
 import styles from "./AdminDashboard.module.css";
 import { downloadQueriesAsCSV } from "./AdminDashboardDownloadUtils";
+import Navbar from "./Navbar/Navbar";
+
 
 const now = new Date();
 const sampleData = [
@@ -136,6 +138,8 @@ export default function AdminDashboard({ onLogout }) {
 
   return (
     <>
+      <Navbar />
+      <div className={styles.bgGradient} />
       {/* Popup for WhatsApp Web */}
       {waPopup.open && (
         <div className={styles.popupOverlay}>
@@ -167,7 +171,7 @@ export default function AdminDashboard({ onLogout }) {
           </div>
         </div>
       )}
-      <div className={styles.bgGradient} />
+      
       <div className={styles.mainContent}>
         <header className={styles.header}>
           <h1 className={styles.title}>IAA WhatsApp Chatbot Admin Dashboard</h1>
