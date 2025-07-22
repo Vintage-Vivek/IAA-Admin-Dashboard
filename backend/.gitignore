@@ -1,0 +1,51 @@
+# 🚫 Sensitive environment files
+.env
+.env.*
+!.env.example
+
+# 🛠 Node dependencies
+node_modules/
+backend/node_modules/
+
+# 📦 Lock files (optional — can ignore if you prefer to track them)
+package-lock.json
+yarn.lock
+
+# ⚙️ Build output
+dist/
+build/
+
+# 🧪 Test coverage
+coverage/
+
+# 💻 System/Editor files
+.DS_Store
+Thumbs.db
+.vscode/
+.idea/
+
+# 🔄 Log files
+*.log
+
+# 🧪 Debug & cache
+npm-debug.log*
+yarn-debug.log*
+yarn-error.log*
+.cache/
+.cache-loader/
+
+# 📸 Images, design backups, and large assets (custom to your structure)
+src/pages/Helper/Design Images/
+src/pages/Helper/*.png
+src/pages/Helper/*.jpg
+src/pages/Helper/*.jpeg
+src/backups/
+
+# 💾 Windows/Office-generated junk
+desktop.ini
+
+# 🔐 Firebase, API, secret files
+firebase.json
+*.key
+*.pem
+*.crt
