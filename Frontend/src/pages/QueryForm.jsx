@@ -5,6 +5,7 @@ import Navbar from "./Navbar/Navbar";
 import HeroSection from "./HeroSection/HeroSection";
 import { useRef } from "react";
 import DesignVideo from "./Helper/Design Images/Design_Video.mp4";
+import JointVenture from "./joint_venture/joint_venture";
 
 
 export default function QueryForm() {
@@ -54,7 +55,6 @@ export default function QueryForm() {
   return (
     <>
       <Navbar />
-      <HeroSection onGetStarted={scrollToForm} />
       <div className={styles.videoBackgroundWrapper}>
         <video
           autoPlay
@@ -156,6 +156,8 @@ export default function QueryForm() {
           </div>
         </div>
       </div>
+      <HeroSection onGetStarted={scrollToForm} />
+      <JointVenture />
     </>
   );
 }

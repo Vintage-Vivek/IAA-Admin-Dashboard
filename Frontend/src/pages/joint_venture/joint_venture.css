@@ -1,0 +1,94 @@
+.joint-venture-container {
+  width: 100%;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  margin: 60px 0 0 0;
+  padding: 40px 0 80px 0; /* More top and bottom padding for scroll and footer */
+  background: #fafbfc;
+  border-radius: 24px;
+  box-shadow: 0 4px 24px rgba(0,0,0,0.06);
+  border: 1.5px solid #e3e3e3;
+  animation: fadeIn 1.2s cubic-bezier(0.4,0,0.2,1);
+}
+
+@keyframes fadeIn {
+  from { opacity: 0; transform: translateY(40px); }
+  to { opacity: 1; transform: translateY(0); }
+}
+
+.joint-venture-title {
+  font-size: 2.5rem;
+  font-weight: 900;
+  margin-bottom: 36px;
+  text-align: center;
+  color: #1a237e;
+  letter-spacing: 0.5px;
+  text-shadow: 0 2px 8px rgba(26,35,126,0.06);
+}
+
+.joint-venture-logos {
+  display: flex;
+  flex-direction: row;
+  justify-content: center;
+  gap: 40px;
+  width: 100%;
+  max-width: 1000px;
+}
+
+.joint-venture-card {
+  background: #fff;
+  border-radius: 18px;
+  box-shadow: 0 2px 12px rgba(0,0,0,0.09);
+  border: 2.5px solid #f3eaea;
+  padding: 32px 40px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  min-width: 240px;
+  min-height: 160px;
+  transition: box-shadow 0.2s, border 0.2s;
+}
+
+.joint-venture-card:hover {
+  box-shadow: 0 6px 24px rgba(26,35,126,0.13);
+  border: 2.5px solid #b3c6ff;
+}
+
+.joint-venture-img {
+  max-width: 140px;
+  max-height: 110px;
+  object-fit: contain;
+}
+
+@media (max-width: 900px) {
+  .joint-venture-logos {
+    gap: 20px;
+    max-width: 100%;
+  }
+  .joint-venture-card {
+    min-width: 160px;
+    padding: 20px 10px;
+  }
+  .joint-venture-img {
+    max-width: 90px;
+    max-height: 70px;
+  }
+}
+
+@media (max-width: 600px) {
+  .joint-venture-logos {
+    flex-direction: column;
+    align-items: center;
+    gap: 24px;
+  }
+  .joint-venture-card {
+    width: 92vw;
+    min-width: unset;
+    padding: 18px 0;
+  }
+  .joint-venture-img {
+    max-width: 110px;
+    max-height: 60px;
+  }
+} 
