@@ -1,9 +1,9 @@
 
 import React, { useState } from 'react';
 import { BrowserRouter as Router, Routes, Route, useNavigate } from 'react-router-dom';
-import AdminDashboard from './pages/AdminDashboard';
-import Login from './pages/Login';
-import QueryForm from './pages/QueryForm';
+import AdminDashboard from './AdminDashboard/AdminDashboard';
+import Login from './pages/Login/Login';
+import QueryForm from './pages/QueryForm/QueryForm';
 import './App.css';
 
 function App() {

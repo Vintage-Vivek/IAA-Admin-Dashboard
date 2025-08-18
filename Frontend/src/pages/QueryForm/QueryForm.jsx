@@ -1,11 +1,12 @@
 
 import React, { useState } from "react";
 import styles from "./QueryForm.module.css";
-import Navbar from "./Navbar/Navbar";
-import HeroSection from "./HeroSection/HeroSection";
+import Navbar from "../Navbar/Navbar";
+import HeroSection from "../HeroSection/HeroSection";
 import { useRef } from "react";
-import DesignVideo from "./Helper/Design Images/Design_Video.mp4";
-import JointVenture from "./joint_venture/joint_venture";
+import DesignVideo from "../Helper/Design Images/Design_Video.mp4";
+import JointVenture from "../joint_venture/joint_venture";
+import Footer from "../footer/footer";
 
 
 export default function QueryForm() {
@@ -68,7 +69,7 @@ export default function QueryForm() {
         </video>
         <div className={styles.centered} ref={formRef}>
           <div className={styles.formBox}>
-            <h1 className={styles.title}>IAA Query Form</h1>
+            <h1 className={styles.title}>iaa Query Raiser Form</h1>
             <p className={styles.subtitle}>Indian Aviation Academy</p>
             <h2 className={styles.formTitle}>Submit Your Query</h2>
             <div style={{ marginBottom: 20, display: 'flex', flexDirection: 'column', alignItems: 'center' }}>
@@ -158,6 +159,7 @@ export default function QueryForm() {
       </div>
       <HeroSection onGetStarted={scrollToForm} />
       <JointVenture />
+      <Footer />
     </>
   );
 }

@@ -1,5 +1,11 @@
 import React, { useState } from "react";
 import styles from "./Login.module.css";
+import Navbar from "../Navbar/Navbar";
+import LoginHeroSection from "../LoginHeroSection/LoginHeroSection";
+import JointVenture from "../joint_venture/joint_venture";
+import Footer from "../footer/footer";
+
+
 
 export default function Login({ onLogin }) {
   const [username, setUsername] = useState("");
@@ -10,20 +16,35 @@ export default function Login({ onLogin }) {
   const handleSubmit = async (e) => {
     e.preventDefault();
     setLoading(true);
-    // Allow any username, but require the correct password
     if (password === import.meta.env.VITE_ADMIN_PASSWORD) {
       onLogin();
-    } else {
-      alert("Wrong password");
+      setLoading(false);
+      return;
+    }
+    try {
+      const res = await fetch("/api/login", {
+        method: "POST",
+        headers: { "Content-Type": "application/json" },
+        body: JSON.stringify({ username, password })
+      });
+      const data = await res.json();
+      if (res.ok && data.success) {
+        onLogin();
+      } else {
+        alert("Wrong username or password");
+      }
+    } catch {
+      alert("Login failed. Please try again.");
     }
     setLoading(false);
   };
 
   return (
-    <div className={styles.bgGradient}>
+    <>
+      <Navbar />
       <div className={styles.centered}>
         <div className={styles.loginBox}>
-          <h1 className={styles.title}>IAA WhatsApp Chatbot Admin Dashboard</h1>
+          <h1 className={styles.title}>iaa Query Portal Admin Dashboard</h1>
           <p className={styles.subtitle}>Indian Aviation Academy</p>
           <h2 className={styles.formTitle}>Admin Login</h2>
           <form onSubmit={handleSubmit} style={{ width: '100%' }}>
@@ -68,6 +89,9 @@ export default function Login({ onLogin }) {
           </form>
         </div>
       </div>
-    </div>
+      <LoginHeroSection />
+      <JointVenture />
+      <Footer />
+    </>
   );
 }

@@ -1,13 +1,4 @@
 /* Login.module.css */
-.bgGradient {
-  position: fixed;
-  top: 0;
-  left: 0;
-  width: 100vw;
-  height: 100vh;
-  z-index: 0;
-  background: linear-gradient(90deg, #ffe5ec 0%, #fff 50%, #e0e7ff 100%);
-}
 .centered {
   position: relative;
   z-index: 1;
@@ -17,6 +8,7 @@
   align-items: center;
   justify-content: center;
   font-family: sans-serif;
+  background: linear-gradient(90deg, rgba(37,99,235,0.85) 0%, rgba(14,165,233,0.7) 100%), url('../new_style/Design_Img (14).png') center/cover no-repeat;
 }
 .loginBox {
   background: #fff7ed;
