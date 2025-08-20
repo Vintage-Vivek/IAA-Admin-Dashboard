@@ -35,13 +35,25 @@ app.get('/', (req, res) => {
 });
 
 // MongoDB connection
-const MONGODB_URI =
-  process.env.MONGODB_URI ||
-  'mongodb+srv://<username>:<password>@cluster.mongodb.net/iaa_dashboard?retryWrites=true&w=majority';
+const MONGODB_URI = process.env.MONGODB_URI;
 
-mongoose.connect(MONGODB_URI, { useNewUrlParser: true, useUnifiedTopology: true })
-  .then(() => console.log('Connected to MongoDB'))
-  .catch(err => console.error('MongoDB connection error:', err));
+console.log('Attempting to connect to MongoDB...');
+mongoose.connect(MONGODB_URI, { 
+  useNewUrlParser: true, 
+  useUnifiedTopology: true,
+  serverSelectionTimeoutMS: 5000 // 5 second timeout
+})
+.then(() => {
+  console.log('Successfully connected to MongoDB');
+  // Test query to verify data access
+  return Query.find().limit(1);
+})
+.then(result => {
+  console.log('Test query result:', result);
+})
+.catch(err => {
+  console.error('MongoDB connection/query error:', err);
+});
 
 // Schema
 const querySchema = new mongoose.Schema({
@@ -108,11 +120,25 @@ app.post('/api/queries', async (req, res) => {
 // GET /api/queries - Get all queries
 app.get('/api/queries', async (req, res) => {
   try {
+    console.log('Fetching queries...');
     const queries = await Query.find().sort({ createdAt: -1 });
-    res.json(queries);
+    console.log('Queries found:', queries.length);
+    
+    // Send detailed response
+    res.json({
+      success: true,
+      count: queries.length,
+      data: queries,
+      mongoConnected: mongoose.connection.readyState === 1
+    });
   } catch (err) {
     console.error('Error fetching queries:', err);
-    res.status(500).json({ success: false, message: 'Failed to fetch queries.' });
+    res.status(500).json({ 
+      success: false, 
+      message: 'Failed to fetch queries.',
+      error: err.message,
+      mongoConnected: mongoose.connection.readyState === 1
+    });
   }
 });
 
