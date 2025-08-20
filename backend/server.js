@@ -41,21 +41,36 @@ console.log('Attempting to connect to MongoDB...');
 mongoose.connect(MONGODB_URI, { 
   useNewUrlParser: true, 
   useUnifiedTopology: true,
-  serverSelectionTimeoutMS: 5000 // 5 second timeout
+  serverSelectionTimeoutMS: 5000, // 5 second timeout
+  retryWrites: true,
+  w: 'majority',
+  directConnection: false
 })
-.then(() => {
-  console.log('Successfully connected to MongoDB');
-  // Test query to verify data access
-  return Query.find().limit(1);
-})
-.then(result => {
-  console.log('Test query result:', result);
-})
-.catch(err => {
-  console.error('MongoDB connection/query error:', err);
-});
-
-// Schema
+  .then(() => {
+    console.log('Successfully connected to MongoDB');
+    console.log('Connection Details:', {
+      host: mongoose.connection.host,
+      port: mongoose.connection.port,
+      name: mongoose.connection.name,
+      readyState: mongoose.connection.readyState
+    });
+    // Test query to verify data access
+    return Query.find().limit(1);
+  })
+  .then(result => {
+    console.log('Test query result:', result);
+    if (result.length === 0) {
+      console.log('No documents found in collection');
+    }
+  })
+  .catch(err => {
+    console.error('MongoDB connection/query error:', {
+      message: err.message,
+      code: err.code,
+      name: err.name,
+      stack: err.stack
+    });
+  });// Schema
 const querySchema = new mongoose.Schema({
   name: String,
   email: String,
