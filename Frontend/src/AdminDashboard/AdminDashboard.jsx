@@ -45,7 +45,7 @@ export default function AdminDashboard({ onLogout }) {
   };
 
   useEffect(() => {
-    fetch("/api/queries")
+    fetch(`${import.meta.env.VITE_API_BASE_URL}/api/queries`)
       .then((res) => res.json())
       .then((data) => setQueries(data))
       .catch(() => setQueries([]));
@@ -58,7 +58,7 @@ export default function AdminDashboard({ onLogout }) {
   // ✅ Direct delete without popup
   const handleRealDelete = async (id) => {
     try {
-      const res = await fetch(`/api/queries/${id}`, { method: "DELETE" });
+      const res = await fetch(`${import.meta.env.VITE_API_BASE_URL}/api/queries/${id}`, { method: "DELETE" });
       if (res.ok) {
         setQueries((prev) => prev.filter((q) => q._id !== id));
       } else {
