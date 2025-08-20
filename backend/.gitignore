@@ -49,3 +49,4 @@ firebase.json
 *.key
 *.pem
 *.crt
+.vercel
