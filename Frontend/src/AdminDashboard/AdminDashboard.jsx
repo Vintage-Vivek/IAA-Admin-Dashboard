@@ -46,15 +46,20 @@ export default function AdminDashboard({ onLogout }) {
   };
 
   useEffect(() => {
-    const apiUrl = `${import.meta.env.VITE_API_BASE_URL}/api/queries`;
+    // Remove any trailing slashes from the base URL
+    const baseUrl = import.meta.env.VITE_API_BASE_URL.replace(/\/+$/, '');
+    const apiUrl = `${baseUrl}/api/queries`;
     console.log('Fetching queries from:', apiUrl);
     
     fetch(apiUrl, {
       method: 'GET',
       headers: {
         'Accept': 'application/json',
-        'Content-Type': 'application/json'
+        'Content-Type': 'application/json',
+        'Origin': window.location.origin
       },
+      mode: 'cors',
+      credentials: 'same-origin',
     })
       .then((res) => {
         console.log('Response status:', res.status);
