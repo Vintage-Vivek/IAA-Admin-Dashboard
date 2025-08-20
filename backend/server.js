@@ -15,6 +15,19 @@ app.use(cors({
 }));
 app.use(express.json());
 
+// Root route
+app.get('/', (req, res) => {
+  res.json({ 
+    message: 'IAA Admin Dashboard API is running',
+    status: 'active',
+    endpoints: [
+      '/api/queries',
+      '/api/submit-query',
+      '/api/update-query'
+    ]
+  });
+});
+
 // MongoDB connection
 const MONGODB_URI =
   process.env.MONGODB_URI ||
