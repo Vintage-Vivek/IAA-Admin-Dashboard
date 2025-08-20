@@ -6,6 +6,7 @@ import JointVenture from "../pages/joint_venture/joint_venture";
 import Footer from "../pages/footer/footer";
 
 export default function AdminDashboard({ onLogout }) {
+  console.log('API URL:', import.meta.env.VITE_API_BASE_URL);
   const [queries, setQueries] = useState([]);
   const [resolvedReal, setResolvedReal] = useState({});
   const [noDataMsg, setNoDataMsg] = useState("");
@@ -45,9 +46,21 @@ export default function AdminDashboard({ onLogout }) {
   };
 
   useEffect(() => {
-    console.log('Fetching queries...');
-    fetch(`${import.meta.env.VITE_API_BASE_URL}/api/queries`)
+    const apiUrl = `${import.meta.env.VITE_API_BASE_URL}/api/queries`;
+    console.log('Fetching queries from:', apiUrl);
+    
+    fetch(apiUrl, {
+      method: 'GET',
+      headers: {
+        'Accept': 'application/json',
+        'Content-Type': 'application/json'
+      },
+    })
       .then((res) => {
+        console.log('Response status:', res.status);
+        if (!res.ok) {
+          throw new Error(`HTTP error! status: ${res.status}`);
+        }
         if (!res.ok) {
           throw new Error(`HTTP error! status: ${res.status}`);
         }
