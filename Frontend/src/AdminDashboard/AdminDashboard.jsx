@@ -45,9 +45,26 @@ export default function AdminDashboard({ onLogout }) {
   };
 
   useEffect(() => {
-    fetch("/api/queries")
-      .then((res) => res.json())
-      .then((data) => setQueries(data))
+    console.log('Fetching queries...');
+    fetch(`${import.meta.env.VITE_API_BASE_URL}/api/queries`)
+      .then((res) => {
+        if (!res.ok) {
+          throw new Error(`HTTP error! status: ${res.status}`);
+        }
+        return res.json();
+      })
+      .then((response) => {
+        console.log('Queries response:', response);
+        // Check if response is an array directly or nested in data property
+        const queriesData = Array.isArray(response) ? response : response.data;
+        if (Array.isArray(queriesData)) {
+          setQueries(queriesData);
+          console.log('Queries set:', queriesData.length);
+        } else {
+          console.error('Invalid response format:', response);
+          setQueries([]);
+        }
+      })
       .catch(() => setQueries([]));
   }, []);
 
