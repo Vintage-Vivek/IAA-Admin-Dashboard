@@ -11,7 +11,7 @@ function App() {
   return (
     <Router>
       <Routes>
-        <Route path="https://iaa-admin-dashboard.vercel.app//admin" element={
+        <Route path="https://iaa-admin-dashboard.vercel.app/admin" element={
           loggedIn ? <AdminDashboard onLogout={() => setLoggedIn(false)} /> : <Login onLogin={() => setLoggedIn(true)} />
         } />
         <Route path="/*" element={<QueryForm />} />
