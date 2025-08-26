@@ -64,7 +64,7 @@ const Footer = () => {
           Copyright @ 2024. All Right Reserved By Indian Aviation Academy. Design and Developed By @VK
         </p>
         <p className="last-updated">
-          Last Updated: 28 Jul 2025
+          Last Updated: 26 Aug 2025
         </p>
       </div>
     </footer>
