@@ -22,7 +22,9 @@ export default function Login({ onLogin }) {
       return;
     }
     try {
-      const res = await fetch("/api/login", {
+      const baseUrl = import.meta.env.VITE_API_BASE_URL?.replace(/\/+$/, '') || '';
+      const apiUrl = baseUrl ? `${baseUrl}/api/login` : '/api/login';
+      const res = await fetch(apiUrl, {
         method: "POST",
         headers: { "Content-Type": "application/json" },
         body: JSON.stringify({ username, password })

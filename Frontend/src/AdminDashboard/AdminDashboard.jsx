@@ -93,7 +93,9 @@ export default function AdminDashboard({ onLogout }) {
   // ✅ Direct delete without popup
   const handleRealDelete = async (id) => {
     try {
-      const res = await fetch(`/api/queries/${id}`, { method: "DELETE" });
+      const baseUrl = import.meta.env.VITE_API_BASE_URL?.replace(/\/+$/, '') || '';
+      const apiUrl = baseUrl ? `${baseUrl}/api/queries/${id}` : `/api/queries/${id}`;
+      const res = await fetch(apiUrl, { method: "DELETE" });
       if (res.ok) {
         setQueries((prev) => prev.filter((q) => q._id !== id));
       } else {
@@ -107,7 +109,9 @@ export default function AdminDashboard({ onLogout }) {
 
   const handleRefresh = async () => {
     try {
-      const res = await fetch("/api/queries");
+      const baseUrl = import.meta.env.VITE_API_BASE_URL?.replace(/\/+$/, '') || '';
+      const apiUrl = baseUrl ? `${baseUrl}/api/queries` : '/api/queries';
+      const res = await fetch(apiUrl);
       const data = await res.json();
       setQueries(data);
     } catch (error) {

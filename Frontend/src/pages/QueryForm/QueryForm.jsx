@@ -33,7 +33,9 @@ export default function QueryForm() {
     setSuccess(false);
     try {
       const datetime = new Date().toISOString();
-      const res = await fetch("/api/queries", {
+      const baseUrl = import.meta.env.VITE_API_BASE_URL?.replace(/\/+$/, '') || '';
+      const apiUrl = baseUrl ? `${baseUrl}/api/queries` : '/api/queries';
+      const res = await fetch(apiUrl, {
         method: "POST",
         headers: { "Content-Type": "application/json" },
         body: JSON.stringify({ name, email, phone, query, datetime, queryType })
