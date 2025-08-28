@@ -1,9 +1,5 @@
 {
   "rewrites": [
     { "source": "/(.*)", "destination": "/" }
-  ],
-  "env": {
-    "VITE_API_BASE_URL": "https://iaa-admin-dashboard-89o9.vercel.app",
-    "VITE_ADMIN_PASSWORD": "@vite_admin_password"
-  }
+  ]
 }

@@ -35,6 +35,13 @@ export default function QueryForm() {
       const datetime = new Date().toISOString();
       const baseUrl = import.meta.env.VITE_API_BASE_URL?.replace(/\/+$/, '') || '';
       const apiUrl = baseUrl ? `${baseUrl}/api/queries` : '/api/queries';
+      
+      // Debug logging
+      console.log('Environment Variables Debug:');
+      console.log('VITE_API_BASE_URL:', import.meta.env.VITE_API_BASE_URL);
+      console.log('Final API URL:', apiUrl);
+      console.log('Mode:', import.meta.env.MODE);
+      
       const res = await fetch(apiUrl, {
         method: "POST",
         headers: { "Content-Type": "application/json" },
