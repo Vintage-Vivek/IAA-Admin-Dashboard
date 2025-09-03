@@ -47,8 +47,11 @@ export default function AdminDashboard({ onLogout }) {
 
   useEffect(() => {
     // Remove any trailing slashes from the base URL
-    const baseUrl = import.meta.env.VITE_API_BASE_URL.replace(/\/+$/, '');
-    const apiUrl = `${baseUrl}/api/queries`;
+    const baseUrl = import.meta.env.VITE_API_BASE_URL?.replace(/\/+$/, '') || '';
+    const apiUrl = baseUrl ? `${baseUrl}/api/queries` : '/api/queries';
+    console.log('Environment Variables Debug:');
+    console.log('VITE_API_BASE_URL:', import.meta.env.VITE_API_BASE_URL);
+    console.log('Mode:', import.meta.env.MODE);
     console.log('Fetching queries from:', apiUrl);
     
     fetch(apiUrl, {
